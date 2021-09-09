@@ -5,6 +5,7 @@
 
     <modules>
         <module>yeb-server</module>
+        <module>yeb-generator</module>
     </modules>
 
     <parent>
