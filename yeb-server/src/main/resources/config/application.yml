@@ -118,3 +118,6 @@ mybatis-plus:
 logging:
   level:
     com.lsz.seckill.mapper: debug
+
+# jwt配置
+jwt
