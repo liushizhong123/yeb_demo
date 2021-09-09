@@ -107,7 +107,7 @@ mybatis-plus:
   # 配置mapper.xml文件
   mapper-locations: classpath*:/mapper/*Mapper.xml
   #配置MyBatis数据返回类型别名(默认别名是类名)
-  type-aliases-package: com.lsz.seckill.pojo
+  type-aliases-package: com.yeb.server.pojo
   configuration:
     # 自动驼峰命名
     map-underscore-to-camel-case: false
@@ -117,7 +117,7 @@ mybatis-plus:
 #mybatis :SQL 打印
 logging:
   level:
-    com.lsz.seckill.mapper: debug
+    com.yeb.server.mapper: debug
 
 # jwt配置
 jwt
