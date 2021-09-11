@@ -70,7 +70,7 @@ public class JwtTokenUtil {
      * @return
      */
     public boolean canRefresh(String token){
-        return !isTokenExpired(token);
+        return isTokenExpired(token);
     }
 
     /**

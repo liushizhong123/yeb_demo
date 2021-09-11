@@ -40,5 +40,4 @@ public class RespBean {
         public static RespBean error(String message,Object object){
             return new RespBean(500,message,object);
         }
-
 }
