@@ -48,14 +48,15 @@ public class CodeGenerator {
     // 全局配置
     GlobalConfig gc = new GlobalConfig();
     String projectPath = System.getProperty("user.dir");
+    //文件输出位置
     gc.setOutputDir(projectPath + "/yeb-generator/src/main/java");
     //作者
     gc.setAuthor("liushizhong");
     //打开输出目录
     gc.setOpen(false);
-    //xml开启 BaseResultMap
+    //xml 开启 BaseResultMap
     gc.setBaseResultMap(true);
-    //xml 开启BaseColumnList
+    //xml 开启 BaseColumnList
     gc.setBaseColumnList(true);
     // 实体属性 Swagger2 注解
     gc.setSwagger2(true);

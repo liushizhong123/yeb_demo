@@ -44,6 +44,7 @@ public class JwtTokenUtil {
         String username;
         try {
             Claims claims = getClaimsFromToken(token);
+            //得到用户名
             username = claims.getSubject();
         } catch (Exception e) {
             username = null;
@@ -137,6 +138,7 @@ public class JwtTokenUtil {
     /**
      * 生成token失效时间
      * 当前时间 + 系统失效时间
+     * System.currentTimeMillis() 返回毫秒
      * @return
      */
     private Date generateExpiration() {
