@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  *启动类
  */
+
 @SpringBootApplication
 @MapperScan("com.yeb.server.mapper")
 public class YebApplication {

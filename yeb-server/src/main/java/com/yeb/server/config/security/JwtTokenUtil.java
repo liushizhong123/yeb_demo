@@ -20,7 +20,7 @@ public class JwtTokenUtil {
 
     @Value("${jwt.secret}")
     private String secret;
-    @Value("${jet.expiration}")
+    @Value("${jwt.expiration}")
     private Long expiration;
 
 
@@ -134,7 +134,7 @@ public class JwtTokenUtil {
         return Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(generateExpiration())
-                .signWith(SignatureAlgorithm.ES512,secret)
+                .signWith(SignatureAlgorithm.HS512,secret)
                 .compact();
     }
 

@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,7 +17,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import java.net.UnknownServiceException;
 
 /**
  * spring security 环境配置
@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //这里使用 jwt 因此禁用 scrf
@@ -48,10 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                // 允许登录 注销访问
-                .antMatchers("/login","/logout")
-                //除了上面的请求，全部认证(登录)
-                .permitAll()
+                //请求全部认证(登录)
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -78,6 +76,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             }
             return null;
         };
+    }
+
+    /**
+     * 放行某些资源
+     * @param web
+     * @throws Exception
+     */
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring()
+                .antMatchers(
+                        "/css/**",
+                        "/js/**",
+                        "/index.html",
+                        "favicon.ico",
+                        "/doc.html",
+                        "/webjars/**",
+                        "/swagger-resources/**",
+                        "/v2/api-docs/**",
+                        "/login",
+                        "/logout",
+                        "/captcha"
+                );
     }
 
     @Bean

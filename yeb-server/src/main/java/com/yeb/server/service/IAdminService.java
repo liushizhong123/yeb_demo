@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author liushizhong
  * @since 2021-09-09
  */
+
 public interface IAdminService extends IService<Admin> {
 
     /**
@@ -23,7 +24,7 @@ public interface IAdminService extends IService<Admin> {
      * @param request
      * @return
      */
-    RespBean login(String username, String password, HttpServletRequest request);
+    RespBean login(String username, String password,String code, HttpServletRequest request);
 
     /**
      * 根据用户名获取用户信息
