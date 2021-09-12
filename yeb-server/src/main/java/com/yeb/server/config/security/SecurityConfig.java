@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 // 允许登录 注销访问
-                .antMatchers("/login","logout")
+                .antMatchers("/login","/logout")
                 //除了上面的请求，全部认证(登录)
                 .permitAll()
                 .anyRequest()
