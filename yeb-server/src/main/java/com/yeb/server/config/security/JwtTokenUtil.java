@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * jwt Token 工具类
+ */
 @Component
 public class JwtTokenUtil {
 
