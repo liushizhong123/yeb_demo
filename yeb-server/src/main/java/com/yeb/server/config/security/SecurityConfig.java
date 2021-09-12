@@ -62,7 +62,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(jwtAuthenticationFilter(),UsernamePasswordAuthenticationFilter.class);
         // 未授权与未登录结果返回
         http.exceptionHandling()
+                // 权限不足处理
                 .accessDeniedHandler(restfulAccessDeniedHandler)
+                //用户未登入处理
                 .authenticationEntryPoint(restAuthorizationEntryPoint);
     }
 
